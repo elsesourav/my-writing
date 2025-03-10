@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>My Writing</title>
+      <link rel="stylesheet" href="styles.css" />
+   </head>
+   <body>
+      <div class="container">
+         <h1>My Writing</h1>
+
+         <div class="drawing-section">
+            <div class="canvas-container">
+               <canvas id="drawingCanvas" width="200" height="200"></canvas>
+               <div class="controls">
+                  <input
+                     type="text"
+                     id="characterSelect"
+                     class="character-selector"
+                     maxlength="1"
+                     placeholder="Type a character..."
+                  />
+                  <input
+                     type="range"
+                     id="strokeSize"
+                     min="1"
+                     max="10"
+                     value="2"
+                     class="stroke-size"
+                  />
+                  <button id="clearButton">Clear</button>
+                  <button id="undoButton">Undo</button>
+                  <button id="redoButton">Redo</button>
+                  <button id="saveCharacter">Save Character</button>
+               </div>
+            </div>
+
+            <div class="character-grid" id="characterGrid">
+               <!-- Character previews will be added here -->
+            </div>
+         </div>
+
+         <div class="preview-section">
+            <textarea
+               type="text"
+               id="textInput"
+               placeholder="Type your text here..."
+               rows="3"
+               style="width: 100%; resize: none;"
+            ></textarea>
+            <canvas id="previewCanvas" style="width: 100%; height: auto;"></canvas>
+         </div>
+      </div>
+      <script src="script.js"></script>
+   </body>
+</html>
