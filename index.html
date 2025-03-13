@@ -4,54 +4,66 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>My Writing</title>
-      <link rel="stylesheet" href="styles.css" />
+      <link rel="stylesheet" href="./css/range.css" />
+      <link rel="stylesheet" href="./css/styles.css" />
+
+      <script defer src="./js/Draw.js"></script>
+      <script defer src="./js/script.js"></script>
    </head>
    <body>
       <div class="container">
          <h1>My Writing</h1>
 
          <div class="drawing-section">
-            <div class="canvas-container">
-               <canvas id="drawingCanvas" width="200" height="200"></canvas>
-               <div class="controls">
-                  <input
-                     type="text"
-                     id="characterSelect"
-                     class="character-selector"
-                     maxlength="1"
-                     placeholder="Type a character..."
-                  />
-                  <input
-                     type="range"
-                     id="strokeSize"
-                     min="1"
-                     max="10"
-                     value="2"
-                     class="stroke-size"
-                  />
-                  <button id="clearButton">Clear</button>
-                  <button id="undoButton">Undo</button>
-                  <button id="redoButton">Redo</button>
-                  <button id="saveCharacter">Save Character</button>
+            <div class="character-selection">
+               <div id="characterTypeButtons"></div>
+               <div id="allCharacters"></div>
+               <div id="showSelectedChars">
+                  <div id="selectedChar"></div>
+                  <div id="selectedAllChars">
+                     <!-- <div><canvas></canvas></div> -->
+                  </div>
                </div>
             </div>
 
-            <div class="character-grid" id="characterGrid">
-               <!-- Character previews will be added here -->
+            <div class="canvas-container">
+               <canvas id="drawingCanvas"></canvas>
+               <div class="controls">
+                  <section class="strike-input">
+                     <label for="range">Stroke</label>
+                     <div class="range">
+                        <input id="strokeSize" name="range" type="range" min="1" max="30" step="0.2" value="10" />
+                     </div>  
+                     <span id="showStrokeSize">10</span>
+                  </section>
+                  <section>
+                     <button class="clear" id="clearButton">Clear</button>
+                     <button id="undoButton">Undo</button>
+                     <button id="redoButton">Redo</button>
+                     <button class="save" id="saveCharacter">Save</button>
+                  </section>
+               </div>
             </div>
          </div>
 
          <div class="preview-section">
+            <div class="preview-controls">
+               <section class="char-size-input">
+                  <label for="charSize">Character Size</label>
+                  <div class="range">
+                     <input id="charSize" name="charSize" type="range" min="20" max="100" step="1" value="40" />
+                  </div>  
+                  <span id="showCharSize">40</span>
+               </section>
+            </div>
             <textarea
                type="text"
                id="textInput"
                placeholder="Type your text here..."
                rows="3"
-               style="width: 100%; resize: none;"
             ></textarea>
-            <canvas id="previewCanvas" style="width: 100%; height: auto;"></canvas>
+            <canvas id="previewCanvas"></canvas>
          </div>
       </div>
-      <script src="script.js"></script>
    </body>
 </html>
